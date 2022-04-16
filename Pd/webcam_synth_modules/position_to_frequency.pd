@@ -1,0 +1,67 @@
+#N canvas 702 224 521 595 12;
+#X obj 247 347 *;
+#X obj 229 536 *;
+#X obj 229 479 pow;
+#X obj 229 560 outlet;
+#X text 4 438 Twelfth root of two (frequency ratio of an equal-tempered
+semitone), f 24;
+#X obj 156 127 hsl 128 15 0 99 0 1 empty empty Range -2 -8 0 10 -262144
+-1 -1 2200 1;
+#X obj 31 207 int;
+#X obj 286 127 nbx 9 15 0 99 0 0 empty \$0_range Semitones 26 9 0 10
+-262144 -1 -128992 17 256;
+#X obj 156 158 hsl 128 15 0 100 0 1 empty empty Lowest_Pitch -2 -8
+0 10 -262144 -1 -1 7000 1;
+#X obj 286 158 nbx 9 15 0 9999 0 0 empty empty Hz 65 9 0 10 -262144
+-66577 -128992 195.998 256;
+#X obj 114 206 mtof;
+#X obj 114 182 int;
+#X msg 185 449 1.05946;
+#X obj 153 180 tgl 15 1 empty empty Snap_to_Nearest_Pitch 17 7 0 10
+-262144 -1 -1 1 1;
+#X obj 277 460 int;
+#X obj 277 435 + 0.499999;
+#X obj 247 409 route 0 1;
+#X obj 247 384 list prepend 0;
+#X obj 31 231 s \$0_range;
+#X obj 265 322 r \$0_range;
+#X obj 115 231 s \$0_lowest_pitch;
+#X obj 246 231 s \$0_snap;
+#X obj 342 359 r \$0_snap;
+#X obj 247 511 r \$0_lowest_pitch;
+#X obj 82 87 > 0;
+#X obj 82 112 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 247 297 inlet;
+#X obj 6 254 s RANGE;
+#X obj 389 108 r \$0_range;
+#X obj 388 139 r \$0_lowest_pitch;
+#X text 81 40 Sends initial range when Python script starts;
+#X obj 82 61 r RECEIVE_CONNECTIONS_OPEN;
+#X connect 0 0 17 0;
+#X connect 0 0 12 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 18 0;
+#X connect 6 0 27 0;
+#X connect 8 0 11 0;
+#X connect 10 0 20 0;
+#X connect 11 0 10 0;
+#X connect 12 0 2 0;
+#X connect 13 0 21 0;
+#X connect 14 0 2 1;
+#X connect 15 0 14 0;
+#X connect 16 0 2 1;
+#X connect 16 1 15 0;
+#X connect 17 0 16 0;
+#X connect 19 0 0 1;
+#X connect 22 0 17 1;
+#X connect 23 0 1 1;
+#X connect 24 0 25 0;
+#X connect 25 0 5 0;
+#X connect 26 0 0 0;
+#X connect 28 0 7 0;
+#X connect 29 0 9 0;
+#X connect 31 0 24 0;
+#X coords 0 -1 1 1 227 100 1 150 100;

@@ -1,0 +1,138 @@
+#N canvas 78 106 1512 831 12;
+#X obj 631 371 inlet~;
+#X obj 746 538 bob~;
+#X obj 746 576 outlet~;
+#X obj 248 534 notein;
+#X obj 303 584 select 0;
+#X obj 758 367 vline~;
+#X obj 204 584 stripnote;
+#X obj 1245 275 pack f f f;
+#X msg 1245 300 \$2 \$3;
+#X obj 219 204 hsl 128 15 0.08 8 1 1 empty empty Resonance -2 -8 0
+10 -262144 -1 -1 9200 1;
+#X obj 219 112 hsl 128 15 1 20000 1 1 empty empty Peak_Frequency -2
+-8 0 10 -262144 -1 -1 10700 1;
+#X obj 219 81 hsl 128 15 1 20000 1 1 empty empty Initial_Frequency
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X obj 219 143 hsl 128 15 1 20000 1 1 empty empty Sustain_Frequency
+-2 -8 0 10 -262144 -1 -1 8200 1;
+#X obj 219 174 hsl 128 15 1 20000 1 1 empty empty End_Frequency -2
+-8 0 10 -262144 -1 -1 0 1;
+#X obj 217 255 vsl 37 128 1 3000 1 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 10200 1;
+#X obj 269 255 vsl 37 128 0 1000 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 2300 1;
+#X obj 321 255 vsl 37 128 1 3000 1 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 10500 1;
+#X obj 373 255 vsl 37 128 0 3000 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 1200 1;
+#X floatatom 217 236 5 0 1 2 Attack #0_attack_time -;
+#X floatatom 269 236 5 0 1 2 Hold #0_hold_time -;
+#X floatatom 321 236 5 0 1 2 Decay #0_decay_time -;
+#X floatatom 373 236 5 0 1 2 Rel. #0_release_time -;
+#X obj 409 53 tgl 15 1 empty empty Bypass -38 7 0 10 -262144 -1 -1
+0 1;
+#X obj 436 68 == 0;
+#X obj 671 477 *~;
+#X obj 594 475 *~;
+#X obj 612 449 == 0;
+#X obj 689 451 == 1;
+#X obj 349 81 nbx 6 15 0 20000 0 0 empty empty Hz 48 9 0 10 -262144
+-66577 -128992 1 256;
+#X obj 349 112 nbx 6 15 0 20000 0 0 empty empty Hz 48 9 0 10 -262144
+-66577 -128992 4204.38 256;
+#X obj 349 143 nbx 6 15 0 20000 0 0 empty empty Hz 48 9 0 10 -262144
+-66577 -128992 598.471 256;
+#X obj 349 174 nbx 6 15 0 20000 0 0 empty empty Hz 48 9 0 10 -262144
+-66577 -128992 1 256;
+#X obj 349 204 nbx 6 15 0 8 0 0 empty empty empty 48 9 0 10 -262144
+-66577 -128992 2.24858 256;
+#X obj 436 91 s \$0_bypass;
+#X obj 651 398 r \$0_bypass;
+#X obj 480 572 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 757 299 pack f f f f f f f, f 45;
+#X obj 947 273 +;
+#X floatatom 924 249 5 0 0 0 - - -;
+#X obj 936 228 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 757 324 \$2 0 \, \$3 \$4 \, \$7 \$6 \$5;
+#X obj 436 121 r \$0_initial_frequency;
+#X obj 439 159 r \$0_peak_frequency;
+#X obj 439 190 r \$0_sustain_frequency;
+#X obj 438 221 r \$0_end_frequency;
+#X obj 438 251 r \$0_resonance;
+#X obj 373 395 s \$0_release_time;
+#X obj 321 420 s \$0_decay_time;
+#X obj 269 447 s \$0_hold_time;
+#X obj 217 475 s \$0_attack_time;
+#X obj 204 608 s \$0_note_on;
+#X obj 303 608 s \$0_note_off;
+#X obj 81 219 s \$0_resonance;
+#X obj 47 189 s \$0_end_frequency;
+#X obj 35 158 s \$0_sustain_frequency;
+#X obj 29 127 s \$0_peak_frequency;
+#X obj 24 96 s \$0_initial_frequency;
+#X obj 756 109 r \$0_note_on;
+#X obj 809 135 r \$0_initial_frequency;
+#X obj 861 160 r \$0_peak_frequency;
+#X obj 913 185 r \$0_attack_time;
+#X obj 965 210 r \$0_hold_time;
+#X obj 1017 234 r \$0_decay_time;
+#X obj 1069 258 r \$0_sustain_frequency;
+#X obj 1245 202 r \$0_note_off;
+#X obj 1278 226 r \$0_end_frequency;
+#X obj 1312 250 r \$0_release_time;
+#X obj 771 510 r \$0_resonance;
+#X connect 0 0 24 0;
+#X connect 0 0 25 0;
+#X connect 1 0 2 0;
+#X connect 3 0 6 0;
+#X connect 3 1 6 1;
+#X connect 3 1 4 0;
+#X connect 4 0 51 0;
+#X connect 5 0 1 1;
+#X connect 6 0 50 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 52 0;
+#X connect 10 0 55 0;
+#X connect 11 0 56 0;
+#X connect 12 0 54 0;
+#X connect 13 0 53 0;
+#X connect 14 0 49 0;
+#X connect 15 0 48 0;
+#X connect 16 0 47 0;
+#X connect 17 0 46 0;
+#X connect 22 0 23 0;
+#X connect 23 0 33 0;
+#X connect 24 0 1 0;
+#X connect 25 0 2 0;
+#X connect 26 0 25 1;
+#X connect 27 0 24 1;
+#X connect 34 0 26 0;
+#X connect 34 0 27 0;
+#X connect 36 0 40 0;
+#X connect 37 0 36 4;
+#X connect 38 0 37 0;
+#X connect 39 0 38 0;
+#X connect 40 0 5 0;
+#X connect 41 0 28 0;
+#X connect 42 0 29 0;
+#X connect 43 0 30 0;
+#X connect 44 0 31 0;
+#X connect 45 0 32 0;
+#X connect 57 0 36 0;
+#X connect 58 0 36 1;
+#X connect 59 0 36 2;
+#X connect 60 0 38 0;
+#X connect 60 0 36 3;
+#X connect 61 0 37 1;
+#X connect 61 0 39 0;
+#X connect 62 0 36 5;
+#X connect 63 0 36 6;
+#X connect 64 0 7 0;
+#X connect 65 0 7 1;
+#X connect 66 0 7 2;
+#X connect 67 0 1 2;
+#X coords 0 -1 1 1 227 342 1 200 50;

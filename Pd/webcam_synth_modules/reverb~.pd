@@ -1,0 +1,65 @@
+#N canvas 650 93 752 645 12;
+#X obj 400 489 rev3~, f 14;
+#X obj 401 545 outlet~;
+#X obj 465 545 outlet~;
+#X obj 169 84 hsl 128 15 0 100 0 1 empty empty Volume -2 -8 0 10 -262144
+-1 -1 10900 1;
+#X obj 169 114 hsl 128 15 0 100 0 1 empty empty Feedback -2 -8 0 10
+-262144 -1 -1 10900 1;
+#X obj 169 144 hsl 128 15 0 100 0 1 empty empty High_Frequency_Damping
+-2 -8 0 10 -262144 -1 -1 6300 1;
+#X obj 169 174 hsl 128 15 20 20000 1 1 empty empty Crossover_Frequency
+-2 -8 0 10 -262144 -1 -1 9200 1;
+#X obj 359 53 tgl 15 1 empty empty Mute -26 7 0 10 -262144 -1 -1 0
+1;
+#X obj 538 42 == 0;
+#X obj 299 174 nbx 6 15 0 20000 0 0 empty empty Hz 48 9 0 10 -262144
+-66577 -128992 2980.29 256;
+#X obj 299 144 nbx 6 15 0 100 0 0 empty empty empty 65 9 0 10 -262144
+-66577 -128992 49.6063 256;
+#X obj 299 114 nbx 6 15 0 100 0 0 empty empty empty 65 9 0 10 -262144
+-66577 -128992 85.8268 256;
+#X obj 299 84 nbx 6 15 0 100 0 0 empty empty empty 65 9 0 10 -262144
+-66577 -128992 85.8268 256;
+#X obj 8 99 s \$0_volume;
+#X obj 41 129 s \$0_feedback;
+#X obj -50 159 s \$0_high_frequency_damping;
+#X obj -41 189 s \$0_crossover_frequency;
+#X obj 538 64 s \$0_mute;
+#X obj 438 380 receive \$0_volume;
+#X obj 457 405 receive \$0_feedback;
+#X obj 476 433 receive \$0_crossover_frequency;
+#X obj 495 458 receive \$0_high_frequency_damping;
+#X obj 385 84 r \$0_volume;
+#X obj 385 113 r \$0_feedback;
+#X obj 380 140 r \$0_high_frequency_damping;
+#X obj 381 168 r \$0_crossover_frequency;
+#X obj 420 346 *~;
+#X obj 438 322 receive \$0_mute;
+#X obj 400 219 inlet~;
+#X obj 400 266 *~;
+#X obj 418 242 receive \$0_mute;
+#X obj 420 299 inlet~;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 3 0 13 0;
+#X connect 4 0 14 0;
+#X connect 5 0 15 0;
+#X connect 6 0 16 0;
+#X connect 7 0 8 0;
+#X connect 8 0 17 0;
+#X connect 18 0 0 2;
+#X connect 19 0 0 3;
+#X connect 20 0 0 4;
+#X connect 21 0 0 5;
+#X connect 22 0 12 0;
+#X connect 23 0 11 0;
+#X connect 24 0 10 0;
+#X connect 25 0 9 0;
+#X connect 26 0 0 1;
+#X connect 27 0 26 1;
+#X connect 28 0 29 0;
+#X connect 29 0 0 0;
+#X connect 30 0 29 1;
+#X connect 31 0 26 0;
+#X coords 0 -1 1 1 227 145 1 150 50;

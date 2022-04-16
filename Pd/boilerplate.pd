@@ -1,0 +1,14 @@
+#N canvas 104 25 316 997 12;
+#X declare -path ./webcam_synth_modules;
+#X obj 51 139 get_hand_position;
+#X obj 51 77 send_range;
+#X obj 51 253 position_to_frequency;
+#X obj 46 942 dac~;
+#X obj 190 207 s y_position;
+#X obj 51 377 frequency_interpolation;
+#X obj 82 207 s x_position;
+#X obj 52 41 declare -path ./webcam_synth_modules;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 0 1 4 0;
+#X connect 2 0 5 0;
