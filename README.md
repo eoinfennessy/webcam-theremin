@@ -20,10 +20,13 @@ After opening one of the Pure Data patches in the Pd folder, run the Python scri
 ## Modules
 The Pure Data components of this instrument are modular, and can be wired together in many different ways. The functionality of each module has been kept to a minimum - for all intents and purposes, each module does one thing and one thing only. This allows for lots of flexibility when it comes to creating/modifying patches and extending existing functionality/adding more modules.
 
+<img width="1100" alt="Example Patch" src="https://user-images.githubusercontent.com/85010533/164815483-94576335-e1e7-454e-9477-c8f1f3b7676f.png">
+
 Below is a list of the modules included and a brief description of each's functionality.
 
 - ```get_hand_position``` Listens for detected x and y position of fingertip (each a floating-point number between 0 and 1) and outputs each on left and right outlets respectively
-- ```position_to_frequency``` Takes a floating point number between 0 and 1 and outputs a number representing the frequency of a note in Hz and the range of the instrument in semitones. Has controls for the range of the instrument in semitones, the lowest pitch of the instrument in Hz, and an option to snap all frequencies to the nearest semitone.
+
+- ```position_to_frequency``` Takes the x position of the fingertip (a floating point number between 0 and 1) and outputs a number representing the frequency of a note in Hz and the range of the instrument in semitones. Has controls for the range of the instrument in semitones, the lowest pitch of the instrument in Hz, and an option to snap all frequencies to the nearest semitone.
 - ```send_range``` Sends the range of the instrument in semitones over websocket. Is used in the Python script in all provided patches here to draw "fret markers" on the screen representing the point at which a note is perfectly in tune.
 - ```frequency_interpolation``` Takes a stream of frequencies and takes a user-specified amount of time to output interpolated values between each frequency. Makes for a very smooth glissando between notes.
 - ```oscillators~```Takes a frequency and outputs an oscillating signal. Has controls for register, tuning, volume, as well as controls for selecting and controlling different oscillator types:
