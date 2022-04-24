@@ -1,4 +1,7 @@
 # webcam-theremin
+
+[![Webcam Theremin](https://user-images.githubusercontent.com/85010533/164991828-26b56f90-a01a-4da9-9cc2-0cf157ded159.gif)](URL "https://youtu.be/lhVT2A8Nzn8")
+
 A modular musical instrument played with hand gestures detected from a webcam feed. Uses OpenCV and MediaPipe in Python for hand detection &amp; tracking, and Pure Data for sound synthesis. [See a video demonstrating the instrument here](URL "https://youtu.be/lhVT2A8Nzn8")
 
 ## Requirements
