@@ -1,5 +1,5 @@
 # webcam-theremin
-A modular musical instrument played with hand gestures detected from a webcam feed. Uses OpenCV and MediaPipe in Python for hand detection &amp; tracking, and Pure Data for sound synthesis.
+A modular musical instrument played with hand gestures detected from a webcam feed. Uses OpenCV and MediaPipe in Python for hand detection &amp; tracking, and Pure Data for sound synthesis. [See and hear a demo of the instrument here](URL "https://youtu.be/lhVT2A8Nzn8")
 
 ## Requirements
 [Mediapipe](URL "https://google.github.io/mediapipe/getting_started/python.html")
